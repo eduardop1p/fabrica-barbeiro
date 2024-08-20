@@ -1,0 +1,367 @@
+// VARS GLOBAIS
+var qtdeAtivarNotificacoesDeVenda = 0;
+
+// FUNCTIONS
+window.ativarNotificacoesVendas = function(){
+
+	function getRandomInt(min, max) {
+	  	min = Math.ceil(min);
+	  	max = Math.floor(max);
+	 	return Math.floor(Math.random() * (max - min)) + min;
+	}
+
+	// Vars
+	let qtde = 1;	
+	let time = getRandomInt(10000, 15000);
+
+	function mostrarVendas(){
+		setInterval(function(){
+			// Mostrar Venda
+			jQuery(".notificacoes-vendas ul li:nth-child("+qtde+")").animate({
+				bottom: "0"
+			});
+			// Mover botão Whatsapp
+			jQuery(".btn-icon-whatsapp-fixed").animate({
+				bottom: "60px"
+			});
+
+			// Esconder Venda
+			setTimeout(function(){
+				jQuery(".notificacoes-vendas ul li:nth-child("+qtde+")").animate({
+					bottom: "-200%"
+				}, 1200);
+
+				// Mover botão Whatsapp
+				jQuery(".btn-icon-whatsapp-fixed").animate({
+					bottom: "7px"
+				});
+				qtde++;				
+			}, 5000);
+		}, time);
+	}
+
+	// ATIVAR NOTIFICAÇÕES DE VENDAS AO PASSAR PELO CERTIFICADO
+	let ativarNotificacoesDeVenda = jQuery(".bg-04").offset();
+
+	jQuery(window).scroll(function() {
+		// Vars
+		let altura = jQuery(window).scrollTop();			
+
+		if(altura >= ativarNotificacoesDeVenda.top && qtdeAtivarNotificacoesDeVenda == 0){			
+			// Mostrar Venda
+			jQuery(".notificacoes-vendas ul li:nth-child("+qtde+")").animate({
+				bottom: "0"
+			});
+			// Mover botão Whatsapp
+			jQuery(".btn-icon-whatsapp-fixed").animate({
+				bottom: "60px"
+			});
+
+			// Esconder Venda
+			setTimeout(function(){
+				jQuery(".notificacoes-vendas ul li:nth-child("+qtde+")").animate({
+					bottom: "-200%"
+				}, 1200);
+				// Mover botão Whatsapp
+				jQuery(".btn-icon-whatsapp-fixed").animate({
+					bottom: "7px"
+				});
+				qtde++;
+
+				// Call Functions
+				mostrarVendas();		
+			}, 7000);
+			
+			qtdeAtivarNotificacoesDeVenda++;
+		}
+	});
+}
+
+// Rolar página até Box de Preços 
+window.btnScrollPreco = function(){
+	jQuery(".btnScrollPrice").click(function(e) {
+		e.preventDefault();
+
+		scrollTopElements(jQuery(".bg-10 .box-preco"), -30);
+	});
+}
+
+// Rolar página até Box escolhido
+window.btnScrollNextBox = function(){
+	jQuery(".btnScrollNextBox").click(function(e) {
+		e.preventDefault();
+
+		scrollTopElements(jQuery( jQuery(this).attr("data-scroll-src") ), 0);
+	});
+}
+
+/** 
+ *Cronometro modal Desconto
+ * var int minutos = 4 -> Default;
+ * var int segundos = 59 -> Default;
+**/
+window.contadorRegressivo = function(horas = 23, minutos = 59, segundos = 59){
+	// Vars
+	let d = new Date();
+	horas = parseInt(horas - d.getHours());
+	minutos = parseInt(minutos - d.getMinutes());
+	segundos = parseInt(segundos - d.getSeconds());
+
+	setInterval(function(){
+		if(horas >= 0){
+			if(minutos >= 0){
+				if(segundos >= 0){
+					// HTML
+					jQuery(".hours").html(horas.toString().padStart(2, '0'));
+					jQuery(".minutes").html(minutos.toString().padStart(2, '0'));
+					jQuery(".seconds").html(segundos.toString().padStart(2, '0'));
+
+					if(horas == 0 || horas == 1){
+						jQuery(".txt-hours").html("hora");
+					}else{
+						jQuery(".txt-hours").html("horas");
+					}
+					if(minutos == 0 || minutos == 1){
+						jQuery(".txt-minutes").html("minuto");
+					}else{
+						jQuery(".txt-minutes").html("minutos");
+					}
+					if(segundos == 0 || segundos == 1){
+						jQuery(".txt-seconds").html("segundo");
+					}else{
+						jQuery(".txt-seconds").html("segundos");
+					}
+				}else{
+					// expirou (segundos)
+					if(minutos == 0){
+						horas--;
+						minutos = 59;
+					}else{
+						minutos--;						
+					}
+					segundos = 59;
+
+					// HTML
+					jQuery(".hours").html(horas.toString().padStart(2, '0'));
+					jQuery(".minutes").html(minutos.toString().padStart(2, '0'));
+					jQuery(".seconds").html(segundos.toString().padStart(2, '0'));
+
+					if(horas == 0 || horas == 1){
+						jQuery(".txt-hours").html("hora");
+					}else{
+						jQuery(".txt-hours").html("horas");
+					}
+					if(minutos == 0 || minutos == 1){
+						jQuery(".txt-minutes").html("minuto");
+					}else{
+						jQuery(".txt-minutes").html("minutos");
+					}
+					if(segundos == 0 || segundos == 1){
+						jQuery(".txt-seconds").html("segundo");
+					}else{
+						jQuery(".txt-seconds").html("segundos");
+					}
+
+				}
+			}
+		}
+		
+		if(horas == 0 && minutos == 0 && segundos == 0){
+			window.location.href = "?pv=uqn&cupom_expired=true&src=CupomExpiredByCronometro";
+		}else{
+			segundos--;
+		}
+	}, 1000);
+
+	// Call Functions
+	// setCookieModalDesconto(horas*minutos+1);
+}
+
+
+
+/** 
+ * CONTADOR DE ÚLTIMAS VAGAS
+**/
+window.verifyCookieVagasRestantes = function(){
+	// Verificar Cookie "VisitedPV79Whatsapp"
+	if( $.cookie('enableVagasRestantes') != "" && $.cookie('enableVagasRestantes') == "true" ){
+		// Vars
+		let qtde = parseInt($.cookie('enableVagasRestantesQTDE'));
+		let qtde_update = 0;
+
+		if( qtde < 9 ){ // 3
+
+			// Atualizar Cookie
+			$.cookie('enableVagasRestantesQTDE', qtde+1);
+			qtde_update = qtde+1;
+
+			// Vars
+			let porcetagem = 19 + qtde_update;
+			porcetagem = parseInt(porcetagem / 30 * 100);
+			let vagas_restantes = 30 - (19 + qtde_update);
+
+
+			jQuery(".puv-porcentagem-number").html(porcetagem + "%");
+			jQuery(".puv-porcentagem-progress").css("width", porcetagem + "%");
+			jQuery(".puv-vagas-restantes").html(vagas_restantes + " VAGAS RESTANTES");
+
+
+		}else{
+			jQuery(".progress-ultivas-vagas").hide();
+		}
+
+	}else{
+
+		// Setar o Cookie
+		$.cookie('enableVagasRestantes', "true", { expires: 7 });
+		$.cookie('enableVagasRestantesQTDE', 1, { expires: 7 });
+
+		jQuery(".puv-porcentagem-number").html("66%");
+		jQuery(".puv-porcentagem-progress").css("width", "66%");
+		jQuery(".puv-vagas-restantes").html("10 VAGAS RESTANTES");
+
+
+		// DIMINUIR UMA VAGA AO ROLAR PÁGINA
+		let progressUltimasVagas = jQuery(".bg-04 .btn").offset();
+		let i = 0;
+
+		jQuery(window).scroll(function() {
+			// Vars
+			let altura = jQuery(window).scrollTop();
+			let qtde = parseInt($.cookie('enableVagasRestantesQTDE'));
+			let qtde_update = 0;
+			
+			// Mostrar/Esconder Cronômetro
+			if(altura >= progressUltimasVagas.top && i == 0 && qtde <= 8){	
+				
+				// Atualizar Cookie
+				$.cookie('enableVagasRestantesQTDE', qtde+1);
+				qtde_update = qtde+1;
+
+				// Vars
+				let porcetagem = 19 + qtde_update;
+				porcetagem = parseInt(porcetagem / 30 * 100);
+				let vagas_restantes = 30 - (19 + qtde_update);
+
+				jQuery(".puv-porcentagem-number").html(porcetagem + "%");
+				jQuery(".puv-porcentagem-progress").css("width", porcetagem + "%");
+				jQuery(".puv-vagas-restantes").html(vagas_restantes + " VAGAS RESTANTES");
+
+				i++;
+			}
+		});
+	}
+
+
+
+	// DIMINUIR UMA VAGA AO ROLAR PÁGINA (GERAL)
+	let progressUltimasVagas = jQuery(".section-depoimentos-certificados").offset();
+	let i2 = 0;
+
+	jQuery(window).scroll(function() {
+		// Vars
+		let altura = jQuery(window).scrollTop();
+		let qtde = parseInt($.cookie('enableVagasRestantesQTDE'));
+		let qtde_update = 0;
+		
+		// Mostrar/Esconder Cronômetro
+		if(altura >= progressUltimasVagas.top && i2 == 0 && qtde <= 8){	
+			
+			// Atualizar Cookie
+			$.cookie('enableVagasRestantesQTDE', qtde+1);
+			qtde_update = qtde+1;
+
+			// Vars
+			let porcetagem = 19 + qtde_update;
+			porcetagem = parseInt(porcetagem / 30 * 100);
+			let vagas_restantes = 30 - (19 + qtde_update);
+
+			jQuery(".puv-porcentagem-number").html(porcetagem + "%");
+			jQuery(".puv-porcentagem-progress").css("width", porcetagem + "%");
+			jQuery(".puv-vagas-restantes").html(vagas_restantes + " VAGAS RESTANTES");
+
+			i2++;
+		}
+	});
+
+}
+verifyCookieVagasRestantes();
+
+
+// Mostrar Botão do WhatsApp ao rolar página
+window.showButtonWhatsappWindowScroll = function(element){
+	let qtde_show_whatsapp = 0;
+
+	jQuery(window).scroll(function() {
+		// Vars
+		let altura = jQuery(window).scrollTop();
+		let altura_mostrar_whatsapp = element.offset();				
+
+		// Mostrar Whatsapp
+		if(altura >= altura_mostrar_whatsapp.top && qtde_show_whatsapp == 0){
+			jQuery(".btn-icon-whatsapp-fixed").animate({
+				right: "7px"
+			});
+			qtde_show_whatsapp++;
+		} 
+	});
+}
+
+window.playVideoYoutube = function(element){
+	jQuery(".video-vendas-capa").click(function(){
+		jQuery(".video-vendas iframe").each(function(index, el) {
+			let url_video = jQuery(this).attr("src");
+			jQuery(this).attr("src", url_video + "&amp;autoplay=1");
+			setTimeout(function(){
+				jQuery(".video-vendas-capa").fadeOut();
+			}, 700)
+		});
+	});
+}
+
+/** 
+ * ATIVAR DELAY NA PÁGINA DE VENDAS
+**/	
+window.ativarDelay_PV_VSL = function(time = 300000){
+	// Vars
+	var time = time;
+
+	// Verificar Cookie "VisitedPV79Whatsapp"
+	if( $.cookie('viewVSLCompleted') != "" && $.cookie('viewVSLCompleted') == "true" ){
+		$(".pv-new.PV-VSL-DELAY .PV-VSL-DELAY-content, .pv-new.PV-VSL-DELAY .btn-open-aviso-desconto").fadeIn();
+	}else{
+		setTimeout(function(){
+			$(".pv-new.PV-VSL-DELAY .PV-VSL-DELAY-content, .pv-new.PV-VSL-DELAY .btn-open-aviso-desconto").fadeIn();
+
+			// Setar cookie
+			$.cookie('viewVSLCompleted', "true", { expires: 7 });
+		}, time);
+	}
+}
+
+
+/** 
+ * ACELERADOR DE CHECKOUT
+**/	
+window.aceleradorCheckout = function(){
+	setTimeout(function(){
+		$("#aceleradorCheckout").html(` 
+			<img src="https://static-media.hotmart.com/02BClQSOdZSQ_RrfgQaxaPURWos=/400x617/filters:quality(100)/hotmart/checkout_custom/1a30c744-451f-47ec-86b1-6649f33c8f9c/9l0n4vflp.jpg">
+			<img src="https://hotmart.s3.amazonaws.com/product_pictures/2e89f3fb-f77c-4cb1-9507-7841df5b2c25/FBPRO2C.jpg">
+			<img src="https://hotmart.s3.amazonaws.com/product_pictures/4960fa56-adb4-49a2-86b8-8106fa4ddbe9/FBEBOOK20M.jpg">
+			<img src="https://hotmart.s3.amazonaws.com/product_pictures/895cbe44-575c-434e-a77b-f85e07fb2a70/FBCOL.jpg">
+			<img src="https://hotmart.s3.amazonaws.com/product_pictures/28797f25-0728-402e-a537-01ec02b17370/FBFREE.jpg">
+			<img src="https://hotmart.s3.amazonaws.com/product_pictures/361d7d70-6301-46de-be90-6eb8e76261ca/FBDES.jpg">
+			<img src="https://static-media.hotmart.com/kF0h_4DW4Ahny5T0q6gjjqNVG8o=/375x500/filters:quality(100)/hotmart/checkout_custom/5cc4fa96-a6bb-428b-9534-3459303d6397/nsmy8u95b.jpg">
+			<img src="https://static-media.hotmart.com/VCTMIdI2INaz4Lcdw8Ru003xrx4=/375x667/filters:quality(100)/hotmart/checkout_custom/4209cfb2-3747-4007-9426-9be5ada93163/jgftc13cv.jpg">
+			<img src="https://static-media.hotmart.com/dG8k2cXs-60ippLkrIzt5DfHOKc=/375x667/filters:quality(100)/hotmart/checkout_custom/89248f74-eff3-433d-8168-3cd6b9c0475a/7y0nsm16d.jpg">
+			<img src="https://static-media.hotmart.com/lpyPyUno1bDT0ZrTyayhp9dddiQ=/375x667/filters:quality(100)/hotmart/checkout_custom/6eeed49d-5530-4a12-8cdc-d5c7895932da/s3rfnv1rs.jpg">
+			<img src="https://static-media.hotmart.com/ye9E3Ejd1Cp-QdhCPZOQ1qEWOww=/375x667/filters:quality(100)/hotmart/checkout_custom/be662ecb-256e-4ed7-a302-86053fe9d847/tnqmu2wco.jpeg">			
+
+			<!-- FB COL -->
+			<img src="https://static-media.hotmart.com/VRX51-y20QypMFtDpoUKzv2V8Iw=/400x617/filters:quality(100)/hotmart/checkout_custom/dd71faf6-0f51-41c5-a49a-d26191eae990/paowq5mz.jpg">
+		`);
+	}, 15000);
+}
+
+

@@ -1,0 +1,648 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+
+
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-family: 'Montserrat', sans-serif;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+.h1, h1 {
+    font-size: 2.5rem;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+b, strong {
+    font-weight: bolder;
+}
+html {
+	overflow-x: hidden; 
+    height: 100%;
+}
+body {
+   font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.container{
+	width: 1140px;
+	margin: 0 auto;
+	display: table;
+	padding-right: 15px;
+    padding-left: 15px;
+}
+.clearfix{
+	clear: both;
+	width: 100%;
+}
+.box-center{
+	display: table!important;
+	margin: 0 auto!important;
+	float: none!important;
+}
+.box-center2{
+	display: table!important;
+	margin-left: auto!important;
+	margin-right: auto!important;
+	float: none!important;
+}
+
+.logo img{
+	display: table;
+	margin: 0 auto;
+	max-width: 100%;
+}
+.video-vendas .video-vendas-content{
+	position: relative;
+	display: table;
+	margin: 0 auto 7px;
+	width: 560px;
+	height: 360px;
+	overflow: hidden;
+}
+.video-vendas .video-vendas-content iframe{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+.video-vendas .video-vendas-content .video-vendas-capa{
+	position: absolute;
+	left: 0;
+	/*top: -50px;*/
+	cursor: pointer;
+}
+
+p.parcelas{
+	text-align: center!important;
+	padding: 15px 0 0!important;
+	font-size: 16px!important;
+	margin: 0!important;
+	line-height: 18px!important;
+}
+.headline-topo{
+	text-align: center;
+}
+.headline-topo h1 {
+	margin: 0 0 10px;
+}
+.headline-topo h1 strong{
+	color: #f45c5c;
+	color: #f32100;
+}
+
+.pv-new.pv-new-black .btn{
+	display: table;
+	margin: 0 auto;
+	padding: 15px 60px;
+	/*background: #00dd80;*/
+    background: #2CA83D;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+    /*border-bottom: 5px solid #25b75c;*/
+    border-bottom: 5px solid #198a47;
+    vertical-align: initial;
+    white-space: initial;
+    /*border-radius: 50px;*/
+}
+.btn:hover{
+	background: #00dd80;
+	color: #fff;
+}
+.btn span{
+	font-weight: 400;
+	font-size: 16px;
+	display: block;
+	text-align: center;
+}
+
+
+.bg-01{
+	/*background: url(../images/cbo/bg-01.jpg) no-repeat 100% 25% / cover;*/
+	padding-bottom: 0!important;
+}
+.bg{
+	padding: 130px 0;
+    background-attachment: fixed;
+    margin: 60px 0;
+    position: relative;
+    display: table;
+    width: 100%;
+}
+.bg:before{
+	content: " ";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0, 0.6);
+	z-index: 1;
+}
+.bg *{
+	position: relative;
+	z-index: 9;
+	color: white;
+}
+
+
+
+/* Nova Página de Vendas */
+.pv-new .bg-04{
+	margin: 0;
+	padding: 0 0 120px;
+}
+.pv-new .bg-04{
+	background: #fff;
+}
+.pv-new .bg-04 *{
+	color: #000;
+}
+.pv-new .bg-04 .btn{
+	color: #fff;
+}
+.pv-new .mais-certificado{
+	display: table;
+    margin: 20px auto 33px;
+    max-width: 45px;
+}
+.pv-new .video-vendas p{
+	font-weight: bold;
+	text-align: center;
+	opacity: .7;
+	font-size: 12px;
+	color: #fff;
+	opacity: .9;
+}
+.pv-new p.assista-video-acima{
+	margin: 0px 0 5px;
+}
+.pv-new p.p-curso-online{
+	/*color: #fd7508;*/
+	color: #000;
+	background: #fff;
+    border-radius: 50px;
+    opacity: 1;
+    padding: 5px 12px;
+    display: table;
+    margin: 0px auto 15px;
+    font-size: 11px;
+}
+
+
+
+
+html .pv-new.pv-FB-40 .bg-01{
+	padding-top: 20px;
+}
+
+.pv-new.pv-new-black .bg-01 .headline-topo *{
+	color: #fff;
+}
+.pv-new.pv-new-black .headline-topo p{
+	margin: 0 0 7px;
+}
+
+
+
+.box-como-funciona *, .box-certificado *, .box-prova-sociais *{
+	text-align: center;
+}
+
+
+.box-certificado p{
+	padding: 0 250px;
+	margin: 20px 0 20px;
+	line-height: 24px;
+	font-weight: 500;
+}
+.box-certificado .txt-certificado-valido{
+	font-size: 10px;
+    line-height: 10px;
+    text-transform: uppercase;
+    padding: 8px 14px 7px;
+    font-weight: bold;
+    background: #fff;
+    color: #000!important;
+    border-radius: 50px;
+    display: table;
+    margin: 5px auto 0;
+}
+
+.box-certificado ul{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.box-certificado ul li{
+	max-width: 48%;
+	height: auto;
+}
+.box-certificado ul li img{
+	max-width: 100%;
+	border-radius: 7px;
+}
+.box-certificado ul li span{
+	font-size: 12px;
+	font-weight: 600;
+	opacity: .9;
+	margin: -1px 0 0;
+	display: block;
+}
+.box-prova-sociais h2{
+	margin-bottom: 30px;
+}
+
+
+.pv-new .box-preco{
+	margin-top: 80px;
+}
+.pv-new .box-preco
+.box-como-funciona h2{
+	margin-bottom: 30px;
+}
+
+.box-preco{
+	margin-top: 100px;
+	position: relative;
+	text-align: center;
+}
+.box-preco h2{
+	font-size: 36px;
+    line-height: 48px;
+    color: #383838;
+    margin-bottom: 20px;
+}
+.box-preco h2 strong{
+	color: #f32100!important;
+}
+.box-preco > strong, .box-preco > span{
+	display: block;
+	font-size: 24px;
+	margin-bottom: 0px;
+}
+.box-preco .preco-antigo{
+	color: #ed3b34;
+	color: #777!important;
+	font-size: 18px;
+}
+.box-preco .preco-antigo s{
+	color: #777!important;
+}
+.box-preco .preco-parcelado{
+	color: #47dd7f!important;
+	font-size: 48px;
+	position: relative;
+}
+.box-preco .preco-parcelado .price-off{
+    font-size: 9px;
+    line-height: 9px;
+    position: absolute;
+    top: -3px;
+    right: 9%;
+    font-weight: 600;
+    color: #fff;
+    background: #f91717;
+    padding: 3px 4px 3px;
+    border-radius: 4px;
+    display: none;
+}
+html .pv-new.pv-FB-40 .box-preco .btn{
+	margin: 10px auto 7px;
+}
+.box-img-pagamento{
+	padding-top: 10px;
+}
+.box-img-pagamento img{
+	display: block;
+	margin-bottom: 7px;
+	max-width: 350px;
+}
+.pv-new .section-depoimentos{
+	padding: 60px 0 100px;
+}
+html .pv-new.pv-FB-40 .section-curso-online{
+	background: #000;
+	padding: 60px 0;
+}
+html .pv-new.pv-FB-40 .section-curso-online *{
+	text-align: center;
+	color: #fff;
+}
+
+
+
+
+/* PV NEW BLACK */
+
+
+/* Colors */
+.pv-new.pv-new-black .bg-01 .headline-topo h1 strong, 
+.pv-new.pv-new-black .bg-resumo-beneficios .resumo-beneficios h2 span,
+.pv-new.pv-new-black .box-preco h2 strong{
+	/*color: #f32100;*/
+    color: #fd7508!important;
+}
+.pv-new.pv-new-black .box-preco .preco-parcelado{
+	color: #14dd80!important;
+}
+.pv-new.pv-new-black .btn{
+	/*background: #46ff40;*/
+}
+
+
+.pv-new.pv-new-black .bg-04 *{
+	color: #fff;
+}
+.pv-new.pv-new-black .mais-certificado{
+	background: #fff;
+    padding: 13px;
+    border-radius: 50px;
+	margin: 5px auto 15px;
+}
+
+.pv-new.pv-new-black .contador-price h3.faixa-black-friday{
+	background: #f44336;
+	background: #222428;
+    color: #ffffff;
+}
+.pv-new.pv-new-black .contador-price h3.faixa-black-friday strong{
+	color: #ffffff;
+	color: #14dd80;
+}
+.pv-new.pv-new-black .contador-price{
+    background: #f44336;
+    background: #222428;
+	/*box-shadow: 0px 0px 15px #d8372b;*/
+}
+.pv-new.pv-new-black .bg-04 .contador-price{
+	box-shadow: initial;
+}
+
+.pv-new.pv-new-black .bg-01 .headline-topo h1 strong,
+html .pv-new.pv-FB-40 .section-curso-online-img h2 strong,
+html .pv-new.pv-FB-40 .section-curso-online-txt h2 strong,
+html .pv-new.pv-FB-40 .section-curso-online-txt ul li h4,
+html .pv-new.pv-FB-40 .section-depoimentos-certificados h2 span,
+.pv-new.pv-new-black .bg-resumo-beneficios .resumo-beneficios h2 span
+{
+	color: #43dd8b!important;
+}
+
+
+
+.pv-new.pv-new-black{
+	padding-top: 0;
+}
+.pv-new.pv-new-black .bg-01, .pv-new.pv-new-black .bg-04{
+	background: #000;
+}
+.pv-new.pv-new-black .bg-04{
+	padding-bottom: 100px;
+}
+.pv-new.pv-new-black .bg-01 .logo img{
+    max-width: 20%;
+    margin: 50px auto 30px;
+}
+
+
+.pv-new.pv-new-black .box-preco .preco-antigo, .pv-new.pv-new-black .box-preco .preco-antigo s{
+	color: #f44336!important;
+}
+
+.pv-new.pv-new-black .section-depoimentos-certificados, 
+.pv-new.pv-new-black .section-depoimentos-certificados-2{
+	background: #fff;
+}
+.pv-new.pv-new-black .section-depoimentos-certificados *,
+.pv-new.pv-new-black .section-depoimentos-certificados-2 *{
+	color: #000;
+}
+.pv-new.pv-new-black .section-depoimentos-certificados .btn, 
+.pv-new.pv-new-black .section-depoimentos-certificados-2 .btn{
+	color: #fff;
+}
+
+.pv-new.pv-new-black .contador-price ul{
+	padding: 0 0 30px;
+}
+.pv-new.pv-new-black .contador-price ul li .days,
+.pv-new.pv-new-black .contador-price ul li .hours,
+.pv-new.pv-new-black .contador-price ul li .minutes,
+.pv-new.pv-new-black .contador-price ul li .seconds{
+	width: 60px;
+	height: 60px;
+	font-size: 24px;
+}
+.pv-new.pv-new-black .contador-price ul li .txt-days,
+.pv-new.pv-new-black .contador-price ul li .txt-hours,
+.pv-new.pv-new-black .contador-price ul li .txt-minutes,
+.pv-new.pv-new-black .contador-price ul li .txt-seconds{
+	font-size: 11px;
+}
+.pv-new.pv-new-black .section-depoimentos-certificados h2 span{
+	color: #fd7508;
+}
+
+
+
+
+
+
+.pv-new.pv-new-black .contador-price ul li .days, 
+.pv-new.pv-new-black .contador-price ul li .hours, 
+.pv-new.pv-new-black .contador-price ul li .minutes, 
+.pv-new.pv-new-black .contador-price ul li .seconds{
+	border-color: transparent;
+}
+.pv-new.pv-new-black .bg-sobre-curso{
+	padding-bottom: 0;
+}
+
+.pv-new.pv-new-black .bg-10{
+	padding: 60px 0 120px;
+}
+
+.pv-new.pv-new-black .bg-resumo-beneficios{
+	background: #1d1d1d;
+	padding-top: 100px;
+}
+.pv-new.pv-new-black .section-depoimentos .btn{
+	margin-top: 10px;
+}
+
+.pv-new.pv-new-black .btn-open-aviso-desconto{
+	position: absolute;
+	position: fixed;
+	padding: 3px 0;
+    font-size: 11px;
+}
+
+
+
+.pv-new.pv-new-black .txt-price{
+	font-size: 12px;
+	padding: 5px 0!important;
+	margin: 0!important;
+	text-align: center;
+}
+
+
+.pv-new .curso-indicado h2, .pv-new .box-bonus > h2, .pv-new .box-certificado h2, .pv-new .bg-resumo-beneficios .resumo-beneficios h2,
+.pv-new .bg-sobre-curso .sobre-curso .sobre-curso-texto h3, .pv-new .section-depoimentos h2, .pv-new .box-garantia .box-garantia-text h2,
+.pv-new .bg-11 .duvidas-frequentes h2, .pv-new .curso-indicado-new h2, .pv-new .beneficios-plataforma h2{
+	font-weight: bold;	
+}
+
+
+.btn-icon-whatsapp-fixed, .notificacoes-vendas, #FB-footer, .section-politica-privacidade{
+	display: none;
+}
+
+
+/* Página de VSL com Delay */
+.pv-new.PV-VSL-DELAY{
+	background: #000;
+}
+.pv-new.PV-VSL-DELAY .PV-VSL-DELAY-content,
+.pv-new.PV-VSL-DELAY .btn-open-aviso-desconto{
+	display: none;
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+	/* PV NEW 4.0 */
+	html .pv-new.pv-FB-40 .bg-01 .logo img{
+		display: table;
+		margin: 0 auto;
+	}
+	img{
+		max-width: 100%;
+	}
+	.box-img-pagamento img{
+		max-width: 97%;
+		display: table;
+		margin: 0 auto 0;
+	}
+	.box-img-pagamento img:last-child{
+		max-width: 75%;
+		margin-top: -4px;
+	}
+ 	.container{
+ 		width: 100%;
+ 	}
+ 	.logo img{
+ 		max-width: 70%;
+ 	}
+ 	.headline-topo h1 {
+ 		font-size: 1.4em;
+	    font-weight: 600;
+	    font-weight: bold;
+	    margin-bottom: 10px;
+ 	}
+ 	.headline-topo p{
+	    margin: 0 0 20px;
+	    text-align: center;
+	    font-size: 0.8em;
+	    font-weight: 500;
+ 	}
+
+ 	.video-vendas .video-vendas-content{
+		width: 100%;
+		height: 200px;
+	}
+	.video-vendas .video-vendas-content iframe{
+		width: 100%;
+	}
+	.video-vendas .video-vendas-content .video-vendas-capa{
+		top: -15px;
+	}
+
+	.pv-new.pv-new-black .btn{
+        padding: 20px 10px 20px;
+	    font-size: 1.1em;
+        line-height: 1.4em;
+	    width: 100%;
+	    font-weight: bold;
+	    display: inline-block;
+	}
+	.pv-new .btn span{
+		font-size: 0.8em;
+	}
+
+	.pv-new.pv-new-black .bg-04{
+ 		min-height: 1000px;
+ 	}
+ 	.pv-new .box-certificado h2{
+		font-size: 1.4em;
+	}
+	.box-certificado p{
+		margin: 0;
+		padding: 10px 0 15px;
+		text-align: center;
+	}
+	.box-certificado ul{
+		flex-wrap: wrap;
+		align-items: center;
+		margin: 0;
+	}
+	.box-certificado ul li{
+		max-width: 100%;
+		margin: 5px 0 15px;
+		height: auto;
+	}
+	.box-certificado ul li:last-child{
+		margin-bottom: 0;
+	}
+
+	.pv-new .box-preco h2{
+	    margin-bottom: 13px;
+	}
+	.box-preco .preco-parcelado{
+		font-size: 36px;
+		line-height: 48px;
+	}
+	.box-preco > strong, .box-preco > span{
+		font-size: 16px;
+	}
+
+
+	/* PV NEW BLACK */
+	.pv-new.pv-new-black .bg-01 .logo img{
+	    max-width: 55%;
+	    margin: 35px auto 20px;
+	}
+	.pv-new.pv-new-black .box-preco h2{
+		font-size: 30px;
+	    line-height: 40px;
+	}
+
+	.pv-new.pv-new-black .section-depoimentos.section-depoimentos-certificados h2 img{
+		max-width: 30%;
+	}
+
+
+
+
+	/* 
+	 * FB PV NEW V3 
+	*/
+	html .pv-new.pv-new-black.pv-FB-30 .box-preco .preco-parcelado {
+	    font-size: 2.4em;
+	    line-height: 1.6em;
+	}
+
+}
